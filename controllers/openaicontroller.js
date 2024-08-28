@@ -73,9 +73,15 @@ exports.chatbotController = async (req, res) => {
       url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_TOKEN}`,
       method: "post",
       data: {
-        contents: [{ parts: [{ text: `Answer question similar to how yoda from star war would.
-                                      Me: 'what is your name?'
-                                      yoda: 'yoda is my name'\n Me:${text}` }] }],
+        contents: [
+          {
+            parts: [
+              {
+                text: `Please provide a detailed and friendly response to the following question, as if you were having a conversation with the user:\n\nQuestion: ${text}\nResponse:`,
+              },
+            ],
+          },
+        ],
       },
     });
 

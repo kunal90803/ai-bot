@@ -20,9 +20,9 @@ const Login = () => {
      await axios.post("/api/v1/auth/login",{email,password})
     //  if (data.token && data.token.accessToken)
       
-       toast.success("Login Successful")
+      //  toast.success("Login Successful")
        localStorage.setItem("autoToken",true)
-      navigate("/")
+       navigate("/")
     
     } catch (err) {
       console.log(error);
